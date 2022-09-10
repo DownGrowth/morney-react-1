@@ -28,7 +28,7 @@ const Nav = () => {
         <NavWrapper>
             <ul>
             <li>
-            <Icon name="label"/>
+            <Icon name="tags"/>
               <Link to="/tags">标签页</Link>
             </li>
           <li>
