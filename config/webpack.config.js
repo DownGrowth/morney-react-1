@@ -359,7 +359,9 @@ module.exports = function (webpackEnv) {
                 },
                 {
                   loader: 'svgo-loader',
-                  options:{}
+                  options:{
+                    
+                  }
                 }
               ]
             },
