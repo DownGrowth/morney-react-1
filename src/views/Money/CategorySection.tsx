@@ -1,6 +1,7 @@
-import styled from 'styled-components';
 
-const CategorySection = styled.section`
+import styled from 'styled-components';
+import React ,{ useState } from 'react';
+const Wrapper = styled.section`
 font-size: 24px;
 >ul{
     display: flex;
@@ -23,4 +24,22 @@ font-size: 24px;
     }
 }
 `
-export default CategorySection
+const CategorySection: React.FC = () => {
+  const categoryMap = { '-': '支出', '+': '收入' } 
+  type Keys=keyof typeof categoryMap //'-'|'+' 类型
+  const [categoryList] = useState<Keys[]>(['-', '+'])
+  const [category, setCategory] = useState('-')
+  return (
+    <Wrapper>
+      <ul>
+        {categoryList.map(c => //每一个category生成一个li
+          <li key={c} className={category === c ? 'selected' : ''}
+            onClick={() => { setCategory(c) }}>{categoryMap[c]} 
+          </li>
+        )}
+        
+      </ul>
+    </Wrapper>
+  )
+}
+export {CategorySection }
