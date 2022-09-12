@@ -25,16 +25,16 @@ function App() {
     <Router>
      
         <Switch>
-          <Route path="/tags" exact={true}>
+          <Route exact path="/tags" >
             <Tags />
           </Route>
-          <Route path="/tags/:tag" exact={true}>
+          <Route exact path="/tags/:id" >
             <Tag />
             </Route>
-          <Route path="/money">
+          <Route exact path="/money">
             <Money />
           </Route>
-          <Route path="/statistics">
+          <Route exact path="/statistics">
             <Statistics />
           </Route>
           <Redirect exact from='/' to="/money"/>
