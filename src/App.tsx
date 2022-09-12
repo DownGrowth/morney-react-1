@@ -11,6 +11,7 @@ import Money from './views/Money';
 import Tags from './views/Tags';
 import NoMatch from './views/NoMatch';
 import styled from 'styled-components';
+import { Tag } from 'views/Tag';
 
 
 const AppWrapper=styled.div`
@@ -24,9 +25,12 @@ function App() {
     <Router>
      
         <Switch>
-          <Route path="/tags">
+          <Route path="/tags" exact={true}>
             <Tags />
           </Route>
+          <Route path="/tags/:tag" exact={true}>
+            <Tag />
+            </Route>
           <Route path="/money">
             <Money />
           </Route>
