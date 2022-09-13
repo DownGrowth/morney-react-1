@@ -5,12 +5,12 @@ try { importAll(require.context('icons', true, /\.svg$/)); } catch (error) { con
 //从一个目录下把svg文件全部引入
 
 type Props = {
-    name:string
+    name?:string
 }
-const Icon = (prop:Props) => {
+const Icon = (props:Props) => {
     return (
         <svg className="icon">
-            <use xlinkHref={'#'+prop.name}/>
+           {props.name && <use xlinkHref={'#'+props.name}/>} 
         </svg>
     )
 }

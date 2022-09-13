@@ -24,7 +24,6 @@ function Money() {
         setSelected({...selected,...obj})}
     return (
         <MyLayout>
-           
             <TagsSection value={selected.tagIds} onChange={tagIds =>onChange({tagIds})}/>
             <NoteSection value={selected.note} onChange={note => onChange({note})}/>    
             <CategorySection value={selected.category} onChange=
