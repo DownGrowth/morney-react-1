@@ -5,17 +5,12 @@ import styled from 'styled-components';
 import Icon from '../components/icon';
 import { Link } from "react-router-dom";
 import { Button } from "components/Button";
+import { Center } from "components/Center";
+import { Space } from "components/Space";
 
 
-const Center=styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`
-const Space=styled.div`
-  height: 18px;
-`
+
+
 const TagList=styled.ol`
   font-size: 16px;
   background: white;
