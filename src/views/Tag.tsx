@@ -2,7 +2,7 @@ import { Button } from "components/Button";
 import Layout from "components/Layout";
 import React from "react"
 import { useParams ,useHistory} from "react-router-dom"
-import { useTags } from 'useTags';
+import { useTags } from 'hooks/useTags';
 import Icon from '../components/icon';
 import styled from 'styled-components';
 import { Input } from "components/Input";
