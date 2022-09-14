@@ -1,13 +1,24 @@
+import { useUpdate } from "hooks/useUpdate";
 import { createId } from "lib/createId";
-import  { useState } from "react"
-const defaultTags = [
-    { id: createId(), name: '衣' },
-    { id: createId(), name: '食' },
-    { id: createId(), name: '住' },
-    { id: createId(), name: '行' },
-]
+import  { useEffect, useState ,useRef} from "react"
+
 const useTags = () => {
-    const [tags, setTags] = useState<{ id: number; name: string }[]>(defaultTags)
+    const [tags, setTags] = useState<{ id: number; name: string }[]>([])
+    useEffect(() => {
+        let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]')
+        if (localTags.length === 0) {
+            localTags = [
+                { id: createId(), name: '衣' },
+                { id: createId(), name: '食' },
+                { id: createId(), name: '住' },
+                { id: createId(), name: '行' },
+            ]
+        }
+        setTags(localTags)
+    }, []) //组件挂载时执行
+    useUpdate(() => {
+        window.localStorage.setItem('tags',JSON.stringify(tags))
+    },[tags])
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0]
     const findTagIndex = (id: number) => {
         let result=-1
@@ -25,8 +36,15 @@ const useTags = () => {
     const deleteTag = (id: number) => {
         setTags(tags.filter(tag=>tag.id!==id))//把不是当前下标的全部留下
     }
+    const addTag = () => {
+        const tagName=window.prompt('新标签的名称为')
+        if (tagName !== null) {
+            setTags([...tags, { id: createId(), name:tagName}])
+        }
+    }
     return {
         findTag,
+        addTag,
         tags,
         setTags,
         findTagIndex,
