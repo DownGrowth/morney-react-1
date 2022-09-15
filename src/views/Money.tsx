@@ -22,7 +22,7 @@ const defaultFormData={
 }
 function Money() {
     const [selected, setSelected] = useState(defaultFormData)
-    const { records, addRecord } = useRecords()
+    const {  addRecord } = useRecords()
     
     const onChange = (obj: Partial<typeof selected>) => {
         setSelected({ ...selected, ...obj })
@@ -35,6 +35,7 @@ function Money() {
     }
     return (
         <MyLayout>
+           
             <TagsSection value={selected.tagIds} onChange={tagIds =>onChange({tagIds})}/>
             <NoteSection value={selected.note} onChange={note => onChange({note})}/>    
             <CategorySection value={selected.category} onChange=
