@@ -7,7 +7,9 @@ import { CategorySection } from "./Money/CategorySection";
 import { NumberPadSection } from "./Money/NumberPadSection";
 import { useRecords } from 'hooks/useRecords';
 
-
+const CategoryWrapper=styled.div`
+    background: #c4c4c4;
+`
 const MyLayout = styled(Layout)`
 
     display: flex;
@@ -37,9 +39,11 @@ function Money() {
         <MyLayout>
            
             <TagsSection value={selected.tagIds} onChange={tagIds =>onChange({tagIds})}/>
-            <NoteSection value={selected.note} onChange={note => onChange({note})}/>    
+            <NoteSection value={selected.note} onChange={note => onChange({ note })} />   
+            <CategoryWrapper>
             <CategorySection value={selected.category} onChange=
-                {category => onChange({ category })} />
+                    {category => onChange({ category })} />
+                </CategoryWrapper>
             <NumberPadSection value={selected.amount} onChange=
                 {amount => onChange({ amount })} onOk={submit} />
     </MyLayout>

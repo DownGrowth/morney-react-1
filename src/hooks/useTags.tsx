@@ -37,13 +37,18 @@ const useTags = () => {
         setTags(tags.filter(tag=>tag.id!==id))//把不是当前下标的全部留下
     }
     const addTag = () => {
-        const tagName=window.prompt('新标签的名称为')
+        const tagName = window.prompt('新标签的名称为')
         if (tagName !== null) {
-            setTags([...tags, { id: createId(), name:tagName}])
+            setTags([...tags, { id: createId(), name: tagName }])
         }
+    };
+    const getName = (id: number) => {
+        const tag = tags.filter(t => t.id === id)[0]
+        return tag ? tag.name : '';
     }
     return {
         findTag,
+        getName,
         addTag,
         tags,
         setTags,

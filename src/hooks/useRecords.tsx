@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useUpdate } from 'hooks/useUpdate';
 
-type RecordItem = {
+export type RecordItem = {
     tagIds: number[]
     note: string
     category: '+' | '-'
@@ -9,7 +9,7 @@ type RecordItem = {
     createAt:string //ISO 8601
 }
 type newRecordItem = Omit<RecordItem,'createAt'>
-const useRecords = () => {
+ const useRecords = () => {
     const [records, setRecords] = useState<RecordItem[]>([])
     useEffect(() => {
         setRecords(JSON.parse(window.localStorage.getItem('records')||'[]'))
