@@ -36,18 +36,21 @@ function Money() {
        }
     }
     return (
-        <MyLayout>
-           
-            <TagsSection value={selected.tagIds} onChange={tagIds =>onChange({tagIds})}/>
-            <NoteSection value={selected.note} onChange={note => onChange({ note })} />   
-            <CategoryWrapper>
-            <CategorySection value={selected.category} onChange=
-                    {category => onChange({ category })} />
-                </CategoryWrapper>
-            <NumberPadSection value={selected.amount} onChange=
-                {amount => onChange({ amount })} onOk={submit} />
-    </MyLayout>
-    )
-}
+        <MyLayout scrollTop={9999}>
+          <TagsSection value={selected.tagIds}
+            onChange={tagIds => onChange({tagIds})}/>
+          <NoteSection value={selected.note}
+            onChange={note => onChange({note})}/>
+          <CategoryWrapper>
+            <CategorySection value={selected.category}
+              onChange={category => onChange({category})}/>
+          </CategoryWrapper>
+          <NumberPadSection value={selected.amount}
+            onChange={amount => onChange({amount})}
+            onOk={submit}
+          />
+        </MyLayout>
+      );
+    }
   
 export default Money

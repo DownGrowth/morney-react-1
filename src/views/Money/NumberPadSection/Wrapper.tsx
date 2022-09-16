@@ -13,6 +13,7 @@ display: flex;
     }
     >.pad{
        >button{
+        font-size: 18;
         float: left;
         width: 25%;
         height: 64px;
@@ -50,6 +51,7 @@ display: flex;
             background:#a9a9a9;
         }
        }
+       
     }
 `
 export {Wrapper}

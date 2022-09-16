@@ -1,6 +1,7 @@
 {
   "name": "morney-react-1",
   "version": "0.1.0",
+  "homepage": "http://downgrowth.github.io/morney-react-1-website/",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
