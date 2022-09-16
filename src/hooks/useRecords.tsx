@@ -16,7 +16,7 @@ type newRecordItem = Omit<RecordItem,'createAt'>
     }, [])
     useUpdate(() => {
         window.localStorage.setItem('records',JSON.stringify(records))
-    },[records])
+    },records)
     const addRecord = (newRecord: newRecordItem) => {
         if (newRecord.amount <= 1) {
             alert('请输入金额')
